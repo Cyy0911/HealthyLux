@@ -27,13 +27,13 @@ class _BMIResultState extends State<BMIResult> {
   final AppUser _appUser = AppUser();
 
   void saveData() async {
+    BuildAlertDialog().buildAlertDialog(
+        context, "BMI Result", "Your BMI result have been saved.", "OK");
     email = _appUser.email;
     result = widget.result2;
     User? currentUser = FirebaseAuth.instance.currentUser;
     await _firebaseService.updateBmi(
         "${currentUser!.email}", double.parse(result));
-    BuildAlertDialog().buildAlertDialog(
-        context, "BMI Result", "Your BMI result have been saved.", "OK");
   }
 
   @override

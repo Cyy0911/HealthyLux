@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:healthy_lux/Components/appbar.dart';
-import 'package:healthy_lux/Components/text_field.dart';
 import 'package:healthy_lux/Components/text_form_field.dart';
 import 'package:healthy_lux/Model/app_user.dart';
 import 'package:healthy_lux/Model/firebase_service.dart';
@@ -166,20 +165,16 @@ class _EditProfileState extends State<EditProfile> {
                     return null;
                   }
                 }),
-                BuildTextFormField(output: '').createState().buildTextFormField(
-                  "BMI",
-                  result,
-                  true,
-                  false,
-                  (value) {
-                    if (value.isEmpty) {
-                      return null;
-                    } else {
-                      result = value;
-                      return null;
-                    }
-                  },
-                ),
+                BuildTextFormField(output: '')
+                    .createState()
+                    .buildTextFormField("BMI", result, true, false, (value) {
+                  if (value.isEmpty) {
+                    return null;
+                  } else {
+                    result = value;
+                    return null;
+                  }
+                }),
               ]),
             ),
             const SizedBox(
